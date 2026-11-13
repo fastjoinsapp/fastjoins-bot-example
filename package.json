@@ -1,0 +1,17 @@
+{
+  "name": "fastjoins-bot-example",
+  "version": "1.0.0",
+  "description": "Open source Discord bot powered by the FastJoins public API. Fork it, add your API key, and earn from every user it brings.",
+  "main": "index.js",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.16.3",
+    "dotenv": "^16.4.5"
+  }
+}
