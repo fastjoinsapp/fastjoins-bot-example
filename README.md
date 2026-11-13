@@ -1,6 +1,6 @@
 # FastJoins — example bot
 
-An open source Discord bot built on the [FastJoins public API](https://fastjoins.xyz/docs).
+An open source Discord bot built on the [FastJoins public API](https://fastjoins.fr/docs).
 Fork it, plug in your API key, and run your own member-exchange bot: **every user of your bot is affiliated to you**, and you earn coins each time one of them joins a promoted server.
 
 > 🇫🇷 Un bot Discord open source branché sur l'API FastJoins. Forkez-le, ajoutez votre clé API et lancez votre propre bot : chaque utilisateur vous est affilié et vous rapporte des pièces à chaque serveur rejoint.
@@ -31,7 +31,7 @@ Requirements: **Node.js 18+**, a Discord application with a bot, and a FastJoins
 3. Configure and start:
 
 ```bash
-git clone https://github.com/fastjoins/fastjoins-bot-example.git
+git clone https://github.com/fastjoinsapp/fastjoins-bot-example.git
 cd fastjoins-bot-example
 cp .env.example .env
 npm install
@@ -42,7 +42,7 @@ npm start
 |---|---|---|
 | `TOKEN` | yes | Your Discord bot token |
 | `API_KEY` | yes | Your FastJoins API key. Users of the bot are affiliated to it |
-| `FASTJOINS_URL` | yes | FastJoins website, e.g. `https://fastjoins.xyz` |
+| `FASTJOINS_URL` | yes | FastJoins website, e.g. `https://fastjoins.fr` |
 | `GUILD_ID` | no | Test server: commands register instantly there (global registration can take up to 1 hour) |
 | `OWNERS` | no | Comma-separated Discord IDs allowed to use `/stats` |
 
