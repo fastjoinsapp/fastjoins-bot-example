@@ -2,28 +2,24 @@
  * /help and /stats (developer earnings, owners only)
  */
 const { SlashCommandBuilder } = require("discord.js");
+const cards = require("../render/cards");
+const { view } = require("../ui");
 
 module.exports = [
     {
         data: new SlashCommandBuilder().setName("help").setDescription("All commands"),
-        async execute(interaction, { t, config }) {
-            await interaction.reply({ content: t("help", { url: config.baseUrl }), ephemeral: true });
+        async execute(interaction, { l, config, commands }) {
+            await interaction.deferReply({ ephemeral: true });
+            const list = [ ...commands.keys() ].map((name) => [ name, l.t(`help.${name}`) ]);
+            await interaction.editReply(view(await cards.helpCard({ commands: list, url: config.baseUrl }, l)));
         }
     },
     {
         data: new SlashCommandBuilder().setName("stats").setDescription("Your developer earnings (owners only)"),
-        async execute(interaction, { api, t, config }) {
-            if(!config.owners.includes(interaction.user.id)) return interaction.reply({ content: t("ownerOnly"), ephemeral: true });
+        async execute(interaction, { api, l, config }) {
+            if(!config.owners.includes(interaction.user.id)) return interaction.reply({ content: l.t("ownerOnly"), ephemeral: true });
             await interaction.deferReply({ ephemeral: true });
-            const s = await api.stats();
-            await interaction.editReply(t("stats", {
-                users: s.affiliated_users,
-                users30: s.affiliated_users_30d,
-                joins: s.affiliated_joins,
-                earned: s.affiliation_earned,
-                req: s.api_requests_30d,
-                balance: s.balance
-            }));
+            await interaction.editReply(view(await cards.statsCard(await api.stats(), l)));
         }
     }
 ];
