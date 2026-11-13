@@ -48,6 +48,25 @@ npm start
 
 Invite your bot with the `bot` and `applications.commands` scopes. It only needs the **Guilds** intent: joining is done with invite links, then verified by FastJoins.
 
+## Config **.env**
+
+```
+# Discord bot token (https://discord.com/developers/applications -> Bot -> Reset Token)
+TOKEN=
+
+# Your FastJoins API key (https://fastjoins.fr/developers). Every user of this bot is affiliated to it.
+API_KEY=
+
+# FastJoins website URL (no trailing slash)
+FASTJOINS_URL=https://fastjoins.fr
+
+# Optional: a test server ID to register slash commands instantly (empty = global, can take up to 1 hour)
+GUILD_ID=
+
+# Optional: comma-separated Discord IDs allowed to use /stats
+OWNERS=
+```
+
 ## How farming works
 
 1. `/farm` calls `farm` and shows a server with its invite link.
